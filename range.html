@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Range Sum</title>
+</head>
+<body>
+    <label for="rangeA">Range A:</label>
+    <input type="range" id="rangeA" min="0" max="50" value="0">
+    <span id="rangeAValue">0</span>
+
+    <br>
+
+    <label for="rangeB">Range B:</label>
+    <input type="range" id="rangeB" min="0" max="50" value="0">
+    <span id="rangeBValue">0</span>
+
+    <script>
+        const rangeA = document.getElementById("rangeA");
+        const rangeAValue = document.getElementById("rangeAValue");
+        const rangeB = document.getElementById("rangeB");
+        const rangeBValue = document.getElementById("rangeBValue");
+
+        rangeA.addEventListener("input", function() {
+            updateRangeValue(this, rangeAValue, rangeB);
+        });
+
+        rangeB.addEventListener("input", function() {
+            updateRangeValue(this, rangeBValue, rangeA);
+        });
+
+        function updateRangeValue(range, rangeValue, otherRange) {
+            const value = parseInt(range.value);
+            rangeValue.textContent = value;
+
+            const otherValue = 50 - value;
+            otherRange.max = otherValue;
+        }
+    </script>
+</body>
+</html>
